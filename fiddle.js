@@ -1,4 +1,32 @@
-const url = 'https://raw.githubusercontent.com/Slanfan/MTG-Tolaria/main/Test%20Scripts/spectral-chaos-replaced.txt';
+
+function getTypesList(type) {
+	const types = [];
+  if (type.toLowerCase().includes('creature')) {
+  	types.push('Creature');
+  }
+  if (type.toLowerCase().includes('land')) {
+  	types.push('Land');
+  }
+  if (type.toLowerCase().includes('enchantment')) {
+  	types.push('Enchantment');
+  }
+  if (type.toLowerCase().includes('artifact')) {
+  	types.push('Artifact');
+  }
+  if (type.toLowerCase().includes('instant')) {
+  	types.push('Instant');
+  }
+  if (type.toLowerCase().includes('chaotic')) {
+  	types.push('Chaotic');
+  }
+  if (type.toLowerCase().includes('sorcery')) {
+  	types.push('Sorcery');
+  }
+  
+  return types;
+}
+
+const url = 'https://raw.githubusercontent.com/Slanfan/MTG-Spectral-Chaos/main/spectral-chaos-replaced.txt';
 const xspc = [
     {
         "name": "Island",
@@ -2680,6 +2708,7 @@ xhttp.onreadystatechange = async function() {
               supertypes: [],
               text: text,
               type: type,
+              types: getTypesList(type),
               id: uuid
             });
          }
@@ -2696,4 +2725,3 @@ xhttp.onreadystatechange = async function() {
 };
 xhttp.open("GET", url, true);
 xhttp.send();
-
